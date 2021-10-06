@@ -23,18 +23,42 @@ TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {
     ASSERT_EQ(nullptr, expected);
 }
 
-TEST_F(UniquePtrTest, callShouldReturnNullptr) {
-    auto expected = nullptr;
+TEST_F(UniquePtrTest, assignValueShouldReturnValueInt) {
+    auto expected = 5;
     //auto result = engine->getMaxSpeed();
-    ASSERT_EQ(nullptr, expected);
+    ASSERT_EQ(5, expected);
+}
+
+TEST_F(UniquePtrTest, assignValueShouldReturnValueString) {
+    auto expected = "TEST";
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ("TEST", expected);
+}
+
+TEST_F(UniquePtrTest, assignValueShouldReturnValueDouble) {
+    auto expected = 3.14;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(3.14, expected);
+}
+
+TEST_F(UniquePtrTest, assignValueShouldReturnValueClassPerson) {
+    auto expected = "Name";
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ("Name", expected);
+}
+
+TEST_F(UniquePtrTest, assignValueShouldReturnValueClassPerson) {
+    auto expected = true;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(true, expected);
 }
 
 //tests
-// if is null ptr when init
-// 5x read data if make_unique
+// if is null ptr when init ------------ DONE
+// 5x read data
 // 3x get()
 // 3x *operator
 // 5x operator ->
-// 3x release()
-// 3x reset()
+// 3x release() = ustawia pointer na nullptr
+// 3x reset() = ustawia pointer na nowy podany objekt
 

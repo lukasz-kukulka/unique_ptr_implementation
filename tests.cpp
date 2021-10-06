@@ -53,9 +53,27 @@ TEST_F(UniquePtrTest, assignValueShouldReturnValueClassPerson) {
     ASSERT_EQ(true, expected);
 }
 
+TEST_F(UniquePtrTest, usingGetMethodShouldReturnRightPointerCaseOne) {
+    auto expected = ptr1;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(ptr1, expected);
+}
+
+TEST_F(UniquePtrTest, usingGetMethodShouldReturnRightPointerCaseTwo) {
+    auto expected = ptr2;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(ptr2, expected);
+}
+
+TEST_F(UniquePtrTest, usingGetMethodShouldReturnRightPointerCaseThree) {
+    auto expected = ptr3;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(ptr3, expected);
+}
+
 //tests
 // if is null ptr when init ------------ DONE
-// 5x read data
+// 5x read data ------------ DONE
 // 3x get()
 // 3x *operator
 // 5x operator ->

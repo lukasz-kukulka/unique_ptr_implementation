@@ -89,6 +89,24 @@ TEST_F(UniquePtrTest, usingDereferenceOperatorShouldReturnValueDouble) {
     ASSERT_EQ(44.11, expected);
 }
 
+TEST_F(UniquePtrTest, callingClassMethodShouldReturnInt) {
+    auto expected = 99;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(99, expected);
+}
+
+TEST_F(UniquePtrTest, callingClassMethodShouldReturnString) {
+    auto expected = "TESt";
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ("TESt", expected);
+}
+
+TEST_F(UniquePtrTest, callingClassMethodShouldReturnDouble) {
+    auto expected = 22.7777;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(22.7777, expected);
+}
+
 
 
 //tests
@@ -96,7 +114,7 @@ TEST_F(UniquePtrTest, usingDereferenceOperatorShouldReturnValueDouble) {
 // 5x read data ------------ DONE
 // 3x get() ------------ DONE
 // 3x *operator ------------ DONE
-// 5x operator -> 
+// 3x operator -> 
 // 3x release() = ustawia pointer na nullptr
 // 3x reset() = ustawia pointer na nowy podany objekt
 

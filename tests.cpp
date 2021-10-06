@@ -125,12 +125,20 @@ TEST_F(UniquePtrTest, afterCallingReleaseMethodShouldReturnNullptrCaseThree) {
     ASSERT_EQ(nullptr, expected);
 }
 
-//tests
-// if is null ptr when init ------------ DONE
-// 5x read data ------------ DONE
-// 3x get() ------------ DONE
-// 3x *operator ------------ DONE
-// 3x operator -> ------------ DONE
-// 3x release() = ustawia pointer na nullptr ------------ DONE
-// 3x reset() = ustawia pointer na nowy podany objekt
+TEST_F(UniquePtrTest, afterCallingResetMethodShouldReturnNewCorrectValueCaseOne) {
+    auto expected = 66;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(66, expected);
+}
 
+TEST_F(UniquePtrTest, afterCallingResetMethodShouldReturnNewCorrectValueCaseTwo) {
+    auto expected = 66.22222;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(99, expected);
+}
+
+TEST_F(UniquePtrTest, afterCallingResetMethodShouldReturnNewCorrectValueCaseThree) {
+    auto expected = "NewValue";
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ("NewValue", expected);
+}

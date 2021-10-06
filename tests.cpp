@@ -71,12 +71,32 @@ TEST_F(UniquePtrTest, usingGetMethodShouldReturnRightPointerCaseThree) {
     ASSERT_EQ(ptr3, expected);
 }
 
+TEST_F(UniquePtrTest, usingDereferenceOperatorShouldReturnValueInt) {
+    auto expected = 55;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(55, expected);
+}
+
+TEST_F(UniquePtrTest, usingDereferenceOperatorShouldReturnValueString) {
+    auto expected = "String";
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ("String", expected);
+}
+
+TEST_F(UniquePtrTest, usingDereferenceOperatorShouldReturnValueDouble) {
+    auto expected = 44.11;
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(44.11, expected);
+}
+
+
+
 //tests
 // if is null ptr when init ------------ DONE
 // 5x read data ------------ DONE
-// 3x get()
-// 3x *operator
-// 5x operator ->
+// 3x get() ------------ DONE
+// 3x *operator ------------ DONE
+// 5x operator -> 
 // 3x release() = ustawia pointer na nullptr
 // 3x reset() = ustawia pointer na nowy podany objekt
 

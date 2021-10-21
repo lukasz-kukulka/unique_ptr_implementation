@@ -14,7 +14,7 @@
 // Nie zapomnij o testach (pokrycie >90%)
 
 struct UniquePtrTest : public ::testing::Test {
-
+    
 };
 
 TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {

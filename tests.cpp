@@ -25,7 +25,6 @@ private:
     int value_ { };
 };
 
-
 struct UniquePtrTest : public ::testing::Test {
     UniquePtr<int>uniqueTestNull;
     UniquePtr<int>uniqueTestValueInt{ new int(5) };
@@ -39,25 +38,25 @@ TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {
     ASSERT_EQ(uniqueTestNull.get(), expected);
 }
 
-// TEST_F(UniquePtrTest, assignValueShouldReturnValueInt) {
-//     auto expected = 5;
-//     ASSERT_EQ(*uniqueTestValueInt.get(), expected);
-// }
+TEST_F(UniquePtrTest, assignValueShouldReturnValueInt) {
+    auto expected = 5;
+    ASSERT_EQ(*uniqueTestValueInt.get(), expected);
+}
 
-// TEST_F(UniquePtrTest, assignValueShouldReturnValueString) {
-//     auto expected = "TEST";
-//     ASSERT_EQ(*uniqueTestValueString.get(), expected);
-// }
+TEST_F(UniquePtrTest, assignValueShouldReturnValueString) {
+    auto expected = "TEST";
+    ASSERT_EQ(*uniqueTestValueString.get(), expected);
+}
 
-// TEST_F(UniquePtrTest, assignValueShouldReturnValueDouble) {
-//     auto expected = 3.14;
-//     ASSERT_EQ(*uniqueTestValueDouble.get(), expected);
-// }
+TEST_F(UniquePtrTest, assignValueShouldReturnValueDouble) {
+    auto expected = 3.14;
+    ASSERT_EQ(*uniqueTestValueDouble.get(), expected);
+}
 
-// TEST_F(UniquePtrTest, usingGetValueShouldReturnRightValueInt) {
-//     auto expected = 999;
-//     ASSERT_EQ(uniqueTestArrowOperator->getValue(), expected);
-// }
+TEST_F(UniquePtrTest, usingGetValueShouldReturnRightValueInt) {
+    auto expected = 999;
+    ASSERT_EQ(uniqueTestArrowOperator->getValue(), expected);
+}
 
 // TEST_F(UniquePtrTest, usingGetMethodShouldReturnRightPointerCaseTwo) {
 //     auto expected = ptr2;

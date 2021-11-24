@@ -33,16 +33,18 @@ public:
     }
     
     UniquePtr& operator=(const UniquePtr& copy) = delete;
-    UniquePtr& operator=(const UniquePtr&& move) {
-        if (move != ptr_) {
-            ptr_ = std::move(move.ptr_);
+    UniquePtr& operator=(UniquePtr&& move) {
+        if (&move != this) {
+            delete ptr_;
+            ptr_ = move.ptr_;
+            move.ptr_ = nullptr;
         }
-        return *ptr_;
+        return *this;
     }
 
     T& operator*() {
         if (!ptr_) {
-            throw std::runtime_error("nullptr");
+            throw std::runtime_error("wrong operation poiter = nullptr");
         }
         return *ptr_;
     }
@@ -56,9 +58,9 @@ public:
     }
 
     T* release() {
-        T* temp { *ptr_ };
-        delete ptr_;
-        return *temp;
+        T* temp { ptr_ };
+        ptr_ = nullptr;
+        return temp;
     }
 
     void reset(T* data) {

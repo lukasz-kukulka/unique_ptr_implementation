@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
 #include "UniquePtr.hpp"
 #include <string>
+#include <iostream>
 
 // Jest klasą szablonową
 // Trzyma wskaźnik do zarządzanego obiektu
@@ -79,3 +80,10 @@ TEST_F(UniquePtrTest, usingReleaseShouldReleasePointer) {
     ASSERT_NE(newObject.get(), newObjectRelease.get());
 }
 
+TEST_F(UniquePtrTest, usingResetShouldResetPointer) {
+    auto expected = 5;
+    int* ptrTest = new int(10);
+    UniquePtr<int>newObjectRelease(new int(expected));
+    newObjectRelease.reset(ptrTest);
+    ASSERT_EQ(*newObjectRelease.get(), *ptrTest);
+}

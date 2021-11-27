@@ -41,6 +41,9 @@ public:
         return ptr_;
     }
 
+    T* get() {
+        return *ptr_;
+    }
 
 private:
     T* ptr_ { nullptr };

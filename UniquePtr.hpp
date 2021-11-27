@@ -37,6 +37,9 @@ public:
         return *ptr_;
     }
 
+    T& operator->() {
+        return ptr_;
+    }
 
 
 private:

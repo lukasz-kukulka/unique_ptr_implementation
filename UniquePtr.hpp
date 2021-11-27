@@ -11,7 +11,11 @@
 template<typename T>
 class UniquePtr {
 public:
-    UniquePtr(T* ptr) {
+    UniquePtr() {
+
+    }
+
+    explicit UniquePtr(T* ptr) {
         ptr_ = new T*;
         ptr_ = ptr;
     }
@@ -43,6 +47,12 @@ public:
 
     T* get() {
         return *ptr_;
+    }
+
+    T* release() {
+        T* temp { *ptr_ };
+        delete ptr_;
+        return *temp;
     }
 
 private:

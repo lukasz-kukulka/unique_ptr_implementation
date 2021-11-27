@@ -30,8 +30,14 @@ public:
     UniquePtr& operator=(const UniquePtr& copy) = delete;
     UniquePtr& operator=(const UniquePtr&& move) {
         ptr_ = std::move(move.ptr_);
-        return *this;
+        return *ptr_;
     }
+
+    T* operator*() {
+        return *ptr_;
+    }
+
+
 
 private:
     T* ptr_ { nullptr };

@@ -15,11 +15,10 @@
 
 
 struct UniquePtrTest : public ::testing::Test {
-    const int valeToCheck { 20 };
-    const int* poiterToCheck = new int(valeToCheck);
     UniquePtr<int>uniqueTestNull;
-    UniquePtr<int>uniqueTestValueInt{new int(5)};
-    UniquePtr<std::string>uniqueTestValueString{new std::string("TEST")};
+    UniquePtr<int>uniqueTestValueInt{ new int(5) };
+    UniquePtr<std::string>uniqueTestValueString{ new std::string("TEST") };
+    UniquePtr<double>uniqueTestValueDouble{ new double(3.14) };
 };
 
 TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {
@@ -38,11 +37,10 @@ TEST_F(UniquePtrTest, assignValueShouldReturnValueString) {
     ASSERT_EQ(*uniqueTestValueString.get(), expected);
 }
 
-// TEST_F(UniquePtrTest, assignValueShouldReturnValueDouble) {
-//     auto expected = 3.14;
-//     //auto result = engine->getMaxSpeed();
-//     ASSERT_EQ(3.14, expected);
-// }
+TEST_F(UniquePtrTest, assignValueShouldReturnValueDouble) {
+    auto expected = 3.14;
+    ASSERT_EQ(*uniqueTestValueDouble.get(), expected);
+}
 
 // TEST_F(UniquePtrTest, assignValueShouldReturnValueClassPerson) {
 //     auto expected = "Name";

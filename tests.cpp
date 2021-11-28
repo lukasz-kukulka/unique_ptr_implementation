@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-
+#include "UniquePtr.hpp"
 
 
 // Jest klasą szablonową
@@ -13,15 +13,18 @@
 // Wymagane metody: operator*(), operator->(), get(), release(), reset()
 // Nie zapomnij o testach (pokrycie >90%)
 
-// struct UniquePtrTest : public ::testing::Test {
-    
-// };
 
-// TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {
-//     auto expected = nullptr;
-//     //auto result = engine->getMaxSpeed();
-//     ASSERT_EQ(nullptr, expected);
-// }
+struct UniquePtrTest : public ::testing::Test {
+    const int valeToCheck { 20 };
+    const int* poiterToCheck = new int(valeToCheck);
+    UniquePtr<int>uniqueTestNull;
+
+};
+
+TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {
+    auto expected = nullptr;
+    ASSERT_EQ(*uniqueTestNull, expected);
+}
 
 // TEST_F(UniquePtrTest, assignValueShouldReturnValueInt) {
 //     auto expected = 5;

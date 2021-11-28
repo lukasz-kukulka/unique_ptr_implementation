@@ -12,7 +12,7 @@ template<typename T>
 class UniquePtr {
 public:
     UniquePtr() {
-
+        
     }
 
     explicit UniquePtr(T* ptr) {
@@ -28,17 +28,21 @@ public:
     }
 
     ~UniquePtr() {
-        delete ptr_;
+        if (ptr_) {
+            delete ptr_;
+        }
     }
     
     UniquePtr& operator=(const UniquePtr& copy) = delete;
     UniquePtr& operator=(const UniquePtr&& move) {
-        ptr_ = std::move(move.ptr_);
+        if (move != ptr_) {
+            ptr_ = std::move(move.ptr_);
+        }
         return *ptr_;
     }
 
     T* operator*() {
-        return *ptr_;
+        return ptr_;
     }
 
     T& operator->() {
@@ -53,6 +57,12 @@ public:
         T* temp { *ptr_ };
         delete ptr_;
         return *temp;
+    }
+
+    void reset(T* data) {
+        if (data != ptr_) {
+            ptr_ = data;
+        }
     }
 
 private:

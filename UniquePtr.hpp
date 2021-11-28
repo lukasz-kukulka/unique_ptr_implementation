@@ -21,7 +21,7 @@ public:
 
     UniquePtr(const UniquePtr& copy) = delete;
 
-    UniquePtr(const UniquePtr&& move) {
+    UniquePtr(UniquePtr&& move) {
         ptr_ = move.ptr_;
         move.ptr_ = nullptr;
     }
@@ -42,7 +42,7 @@ public:
 
     T& operator*() {
         if (!ptr_) {
-            return nullptr;
+            throw std::runtime_error("nullptr");
         }
         return *ptr_;
     }

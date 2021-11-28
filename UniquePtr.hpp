@@ -65,6 +65,7 @@ public:
 
     void reset(T* data) {
         if (data != ptr_) {
+            delete ptr_;
             ptr_ = data;
         }
     }

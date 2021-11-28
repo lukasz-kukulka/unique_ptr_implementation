@@ -16,7 +16,6 @@ public:
     }
 
     explicit UniquePtr(T* ptr) {
-        ptr_ = new T*;
         ptr_ = ptr;
     }
 
@@ -50,7 +49,7 @@ public:
     }
 
     T* get() {
-        return *ptr_;
+        return ptr_;
     }
 
     T* release() {

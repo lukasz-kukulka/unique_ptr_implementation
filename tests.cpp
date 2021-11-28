@@ -18,7 +18,7 @@ struct UniquePtrTest : public ::testing::Test {
     const int valeToCheck { 20 };
     const int* poiterToCheck = new int(valeToCheck);
     UniquePtr<int>uniqueTestNull;
-
+    UniquePtr<int>uniqueTestValueInt{new int(5)};
 };
 
 TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {
@@ -26,11 +26,10 @@ TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {
     ASSERT_EQ(*uniqueTestNull, expected);
 }
 
-// TEST_F(UniquePtrTest, assignValueShouldReturnValueInt) {
-//     auto expected = 5;
-//     //auto result = engine->getMaxSpeed();
-//     ASSERT_EQ(5, expected);
-// }
+TEST_F(UniquePtrTest, assignValueShouldReturnValueInt) {
+    auto expected = 5;
+    ASSERT_EQ(*uniqueTestValueInt.get(), expected);
+}
 
 // TEST_F(UniquePtrTest, assignValueShouldReturnValueString) {
 //     auto expected = "TEST";

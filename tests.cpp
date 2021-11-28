@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 #include "UniquePtr.hpp"
-
+#include <string>
 
 // Jest klasą szablonową
 // Trzyma wskaźnik do zarządzanego obiektu
@@ -19,6 +19,7 @@ struct UniquePtrTest : public ::testing::Test {
     const int* poiterToCheck = new int(valeToCheck);
     UniquePtr<int>uniqueTestNull;
     UniquePtr<int>uniqueTestValueInt{new int(5)};
+    UniquePtr<std::string>uniqueTestValueString{new std::string("TEST")};
 };
 
 TEST_F(UniquePtrTest, callNewObjectShouldReturnNullptr) {
@@ -31,11 +32,11 @@ TEST_F(UniquePtrTest, assignValueShouldReturnValueInt) {
     ASSERT_EQ(*uniqueTestValueInt.get(), expected);
 }
 
-// TEST_F(UniquePtrTest, assignValueShouldReturnValueString) {
-//     auto expected = "TEST";
-//     //auto result = engine->getMaxSpeed();
-//     ASSERT_EQ("TEST", expected);
-// }
+TEST_F(UniquePtrTest, assignValueShouldReturnValueString) {
+    auto expected = "TEST";
+    //auto result = engine->getMaxSpeed();
+    ASSERT_EQ(*uniqueTestValueString.get(), expected);
+}
 
 // TEST_F(UniquePtrTest, assignValueShouldReturnValueDouble) {
 //     auto expected = 3.14;

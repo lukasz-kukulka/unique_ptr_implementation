@@ -40,11 +40,14 @@ public:
         return *ptr_;
     }
 
-    T* operator*() {
-        return ptr_;
+    T& operator*() {
+        if (!ptr_) {
+            return nullptr;
+        }
+        return *ptr_;
     }
 
-    T& operator->() {
+    T* operator->() {
         return ptr_;
     }
 

@@ -88,6 +88,6 @@ TEST_F(UniquePtrTest, usingResetShouldResetPointer) {
     ASSERT_EQ(*newObjectRelease.get(), *ptrTest);
 }
 
-TEST_F(UniquePtrTest, usingNullptrShouldCallExeption) {
+TEST_F(UniquePtrTest, usingNullptrShouldCallException) {
     ASSERT_THROW(*uniqueTestNull, std::runtime_error);
 }

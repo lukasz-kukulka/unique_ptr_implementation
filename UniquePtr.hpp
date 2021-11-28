@@ -11,9 +11,7 @@
 template<typename T>
 class UniquePtr {
 public:
-    UniquePtr() {
-        
-    }
+    UniquePtr() = default;
 
     explicit UniquePtr(T* ptr) {
         ptr_ = ptr;
@@ -42,18 +40,18 @@ public:
         return *this;
     }
 
-    T& operator*() {
+    T& operator*() const {
         if (!ptr_) {
             throw std::runtime_error("wrong operation poiter = nullptr");
         }
         return *ptr_;
     }
 
-    T* operator->() {
+    T* operator->() const {
         return ptr_;
     }
 
-    T* get() {
+    T* get() const {
         return ptr_;
     }
 

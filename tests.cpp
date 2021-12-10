@@ -79,6 +79,13 @@ TEST_F(UniquePtrTest, usingMoveOperatorShouldReturnNullprt) {
     ASSERT_EQ(uniqueTestValueInt.get(), expected);
 }
 
+TEST_F(UniquePtrTest, usingReleaseShouldHaveTheSamePtr) {
+    UniquePtr<int>newObjectRelease(new int(5));
+    auto expected = newObjectRelease.get();
+    auto newObject = newObjectRelease.release();
+    ASSERT_EQ(*newObject, *expected);
+}
+
 TEST_F(UniquePtrTest, usingReleaseShouldReleasePointer) {
     auto expected = 5;
     UniquePtr<int>newObjectRelease(new int(expected));

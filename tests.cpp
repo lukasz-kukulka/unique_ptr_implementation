@@ -72,6 +72,13 @@ TEST_F(UniquePtrTest, usingMoveOperatorShouldReturnRightValueInt) {
     ASSERT_EQ(*newObject.get(), expected);
 }
 
+TEST_F(UniquePtrTest, usingMoveOperatorShouldReturnNullprt) {
+    auto expected = nullptr;
+    UniquePtr<int>newObject;
+    newObject = std::move(uniqueTestValueInt);
+    ASSERT_EQ(uniqueTestValueInt.get(), expected);
+}
+
 TEST_F(UniquePtrTest, usingReleaseShouldReleasePointer) {
     auto expected = 5;
     UniquePtr<int>newObjectRelease(new int(expected));
